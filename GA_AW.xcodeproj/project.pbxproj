@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */; };
+		207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */; };
 		20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11EF2758D5540085D39D /* AppDelegate.swift */; };
 		20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11F12758D5540085D39D /* SceneDelegate.swift */; };
 		20FE11F42758D5540085D39D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11F32758D5540085D39D /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUIsFuncs.swift; sourceTree = "<group>"; };
+		207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		20FE11EC2758D5540085D39D /* GA_AW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GA_AW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FE11EF2758D5540085D39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20FE11F12758D5540085D39D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,10 +85,19 @@
 		207966D4275A4BF40033EBCD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				207966D7275A6C500033EBCD /* TouchClasses */,
 				20FE122C275A36DC0085D39D /* ViewVC.swift */,
 				207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		207966D7275A6C500033EBCD /* TouchClasses */ = {
+			isa = PBXGroup;
+			children = (
+				207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */,
+			);
+			path = TouchClasses;
 			sourceTree = "<group>";
 		};
 		20FE11E32758D5540085D39D = {
@@ -299,6 +310,7 @@
 				207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */,
 				20FE11FA2758D5540085D39D /* GA_AW.xcdatamodeld in Sources */,
 				20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */,
+				207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */,
 				20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */,
 				20FE122D275A36DC0085D39D /* ViewVC.swift in Sources */,
 			);

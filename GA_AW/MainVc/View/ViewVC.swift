@@ -12,13 +12,18 @@ class ViewVC{
     private let mainInfo_View = UIView(),
                 cityName_Label = UILabel(),
                 mainTemp_Label = UILabel(),
-                maxminTemp_Label = UILabel(),
                 description_Label = UILabel(),
-                contentForScroll_View = UIView(),
+                maxminTemp_Label = UILabel(),
+    
                 weather_Scroll = UIScrollView(),
+                contentForScroll_View = UIView(),
+                warning_View = UIView(),
                 hourForecast_Scroll = UIScrollView(),
                 contentForHourScroll_View = UIView(),
-                warning_View = UIView(),
+                //stacks or collections
+                forecastTable = UITableView(),
+                mapFalls_View = UIView(),
+    
                 backgroundColor_ = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3),
                 fontStyleWeatherInfoText = "Helvetica Neue",
                 fontStyleForNumbs = "AppleSDGothicNeo-UltraLight",
@@ -54,7 +59,25 @@ class ViewVC{
         - mainView: is output view.
      */
     func createAllScrolls(mainView: UIView){
-        createUI.createScroll(baseView: mainView, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height * 1.45, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 1600, bounce: true, cornerRad: 15)
-        createUI.createScroll(baseView: contentForScroll_View, scroll: hourForecast_Scroll, x: 0, y: warning_View.frame.maxY + 15, width: contentForScroll_View.frame.width, height: 150, contentView: contentForHourScroll_View, color: backgroundColor_, contentSizeW: 800, contentSizeH: 150, bounce: false, cornerRad: 15)
+        createUI.createScroll(baseView: mainView, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height * 1.45, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2000, bounce: true, cornerRad: 0)
+        var contentSizeW: CGFloat = 1000
+        if contentSizeW < mainW{ contentSizeW = mainW }
+        createUI.createScroll(baseView: contentForScroll_View, scroll: hourForecast_Scroll, x: 0, y: warning_View.frame.maxY + 15, width: contentForScroll_View.frame.width, height: 150, contentView: contentForHourScroll_View, color: backgroundColor_, contentSizeW: contentSizeW, contentSizeH: 150, bounce: false, cornerRad: 15)
+    }
+    /**
+     Calling a function to create a new UITableView with the specified parameters.
+        - mainView: is output view.
+     */
+    func createAllTables(mainView: UIView){
+        createUI.createTable(table: forecastTable, baseView: contentForScroll_View, x: 0, y: hourForecast_Scroll.frame.maxY + 15, width: weather_Scroll.frame.width, height: mainView.frame.height - 200, color: backgroundColor_, cornerRad: 15, rowH: 50)
+        forecastTable.register(ForecastTableViewCell.self, forCellReuseIdentifier: "forecastCell")
+    }
+    
+    /**
+     Calling a function to create a new UIView with map with the specified parameters.
+        - mainView: is output view.
+     */
+    func createMap(mainView: UIView){
+        createUI.createViewMap(viewForMap: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable.frame.maxY + 15, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.3, color: backgroundColor_, cornerRad: 15)
     }
 }

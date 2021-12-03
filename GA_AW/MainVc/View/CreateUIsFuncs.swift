@@ -47,6 +47,7 @@ class CreateUIs{
         userLabel.font = UIFont(name: fontName, size: fontSize)
         userLabel.textAlignment = .center
         userLabel.autoresizingMask = .flexibleWidth
+        userLabel.textColor = .white
         baseView.addSubview(userLabel)
     }
     
@@ -79,8 +80,47 @@ class CreateUIs{
         scroll.showsHorizontalScrollIndicator = false
         contentView.backgroundColor = color
         contentView.frame = .zero
-        contentView.autoresizingMask = .flexibleHeight
+        contentView.autoresizingMask = .flexibleWidth
         contentView.frame.size = contentViewSize
         scroll.addSubview(contentView)
+    }
+    /**
+     Creation of UI element (UITableView).
+        - table: is creation table,
+        - baseView: is view to host the table,
+        - x: is x point,
+        - y: is y point,
+        - width: is width table,
+        - height: is height table,
+        - color: is color for table backgroundColor,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
+     */
+    func createTable(table: UITableView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, cornerRad: CGFloat, rowH: CGFloat){
+        baseView.addSubview(table)
+        table.frame = CGRect(x: x, y: y, width: width, height: height)
+        table.backgroundColor = color
+        table.layer.cornerRadius = cornerRad
+        table.autoresizingMask = .flexibleWidth
+        table.rowHeight = rowH
+        table.separatorColor = .white
+        table.separatorStyle = .singleLine
+    }
+    
+    /**
+     Creation of UI element (UIView with map).
+        - viewForMap: is view for map,
+        - baseView: is view to host viewForMap,
+        - x: is x point,
+        - y: is y point,
+        - width: is width viewForMap,
+        - height: is height viewForMap,
+        - color: is color for viewForMap backgroundColor,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
+     */
+    func createViewMap(viewForMap: UIView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, cornerRad: CGFloat){
+        viewForMap.backgroundColor = color
+        viewForMap.frame = CGRect(x: x, y: y, width: width, height: height)
+        viewForMap.layer.cornerRadius = cornerRad
+        baseView.addSubview(viewForMap)
     }
 }

@@ -15,6 +15,18 @@ class ViewController: UIViewController{
         createUIs.createAllViews(mainView: view)
         createUIs.createAllLabels(mainView: view)
         createUIs.createAllScrolls(mainView: view)
-        CreateUIs().createViews(userView: <#T##UIView#>, baseView: <#T##UIView#>, color: <#T##UIColor#>, x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>, cornerRad: <#T##CGFloat#>)
+        createUIs.createAllTables(mainView: view)
+        createUIs.createMap(mainView: view)
+    }
+}
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath) as! ForecastTableViewCell
+        cell.date_Label.text = "\(indexPath.row)"
+        return cell
     }
 }
