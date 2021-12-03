@@ -12,14 +12,14 @@ class CreateUIs{
     
     /**
      Creation of UI element (UIView).
-        - userView: UIView is input view,
-        - baseView: UIView is view to host the userView,
-        - color: UIColor is color for userView backgroundColor,
-        - x: CGFloat is x point,
-        - y: CGFloat is y point,
-        - width: CGFloat is width userView,
-        - height: CGFloat is height userView,
-        - cornerRad: CGFloat the radius to use when drawing rounded corners for the layer’s background
+        - userView: is input view,
+        - baseView: is view to host the userView,
+        - color: is color for userView backgroundColor,
+        - x: is x point,
+        - y: is y point,
+        - width: is width userView,
+        - height: is height userView,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
      */
     func createViews(userView: UIView, baseView: UIView, color: UIColor, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat){
         userView.backgroundColor = color
@@ -31,15 +31,15 @@ class CreateUIs{
     
     /**
      Creation of UI element (UILabels).
-        - userLabel: UILabel is input label,
-        - baseView: UIView is view to host the userLabel,
-        - text: String is text for userLabel,
-        - x: CGFloat is x point,
-        - y: CGFloat is y point,
-        - width: CGFloat is width userLabel,
-        - height: CGFloat is height userLabel,
-        - fontName: String is font name,
-        - fontSize: CGFloat is font size
+        - userLabel: is input label,
+        - baseView: is view to host the userLabel,
+        - text: is text for userLabel,
+        - x: is x point,
+        - y: is y point,
+        - width: is width userLabel,
+        - height: is height userLabel,
+        - fontName: is font name,
+        - fontSize: is font size
      */
     func createLabels(userLabel: UILabel, baseView: UIView, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, fontName: String, fontSize: CGFloat){
         userLabel.text = text
@@ -52,18 +52,18 @@ class CreateUIs{
     
     /**
      Creation of UI element (UIScrollView).
-        - baseView: UIView is view to host the userLabel,
-        - scroll: UIScrollView is input UIScrollView,
-        - x: CGFloat is x point,
-        - y: CGFloat is y point,
-        - width: CGFloat is width userLabel,
-        - height: CGFloat is height userLabel,
-        - contentView: UIView is view for replace content,
-        - color: UIColor is color for contentView backgroundColor,
-        - contentSizeW: CGFloat is width of contentView,
-        - contentSizeH: CGFloat is heigth of contentView,
-        - bounce: Bool is controls whether the scroll view bounces past the edge of content and back again,
-        - cornerRad: CGFloat the radius to use when drawing rounded corners for the layer’s background
+        - baseView: is view to host the userLabel,
+        - scroll: is input UIScrollView,
+        - x: is x point,
+        - y: is y point,
+        - width: is width userLabel,
+        - height: is height userLabel,
+        - contentView: is view for replace content,
+        - color: is color for contentView backgroundColor,
+        - contentSizeW: is width of contentView,
+        - contentSizeH: is heigth of contentView,
+        - bounce: is controls whether the scroll view bounces past the edge of content and back again,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
      */
     func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, bounce: Bool, cornerRad: CGFloat){
         let contentViewSize = CGSize(width: contentSizeW, height: contentSizeH)

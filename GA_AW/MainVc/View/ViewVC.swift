@@ -28,7 +28,7 @@ class ViewVC{
     
     /**
      Calling a function to create a new UIView with the specified parameters.
-        - mainView: UIView is output view.
+        - mainView: is output view.
      */
     func createAllViews(mainView: UIView){
         mainW = mainView.frame.width
@@ -40,7 +40,7 @@ class ViewVC{
     
     /**
      Calling a function to create a new UILabel with the specified parameters.
-        - mainView: UIView is output view.
+        - mainView: is output view.
      */
     func createAllLabels(mainView: UIView){
         createUI.createLabels(userLabel: cityName_Label, baseView: mainInfo_View, text: "Moscow", x: 0, y: mainInfo_View.frame.width/6, width: mainInfo_View.frame.width, height: 45, fontName: fontStyleWeatherInfoText, fontSize: 33)
@@ -51,7 +51,7 @@ class ViewVC{
     
     /**
      Calling a function to create a new UIScrollView with the specified parameters.
-        - mainView: UIView is output view.
+        - mainView: is output view.
      */
     func createAllScrolls(mainView: UIView){
         createUI.createScroll(baseView: mainView, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height * 1.45, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 1600, bounce: true, cornerRad: 15)
