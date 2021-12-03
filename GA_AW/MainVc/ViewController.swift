@@ -12,11 +12,14 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let createUIs = ViewVC()
+        createUIs.createButtomView(mainView: view)
         createUIs.createAllViews(mainView: view)
         createUIs.createAllLabels(mainView: view)
         createUIs.createAllScrolls(mainView: view)
         createUIs.createAllTables(mainView: view)
         createUIs.createMap(mainView: view)
+        createUIs.createLeftInfoViews(mainView: view)
+        createUIs.createRightInfoViews(mainView: view)
     }
 }
 

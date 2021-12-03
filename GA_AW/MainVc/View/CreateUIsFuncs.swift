@@ -121,6 +121,23 @@ class CreateUIs{
         viewForMap.backgroundColor = color
         viewForMap.frame = CGRect(x: x, y: y, width: width, height: height)
         viewForMap.layer.cornerRadius = cornerRad
+        viewForMap.autoresizingMask = .flexibleWidth
         baseView.addSubview(viewForMap)
+    }
+    
+    func addHeader(baseView: UIView, text: String, icon: UIImage){
+        let viewHead = UIView(),
+            iconHead = UIImageView(),
+            labelHead = UILabel()
+        viewHead.frame = CGRect(x: 0, y: 0, width: baseView.frame.width, height: 30)
+        viewHead.autoresizingMask = .flexibleWidth
+        baseView.addSubview(viewHead)
+        iconHead.frame = CGRect(x: 10, y: 10, width: 15, height: 15)
+        iconHead.image = icon
+        labelHead.text = text
+        labelHead.frame = CGRect(x: iconHead.frame.maxX + 10, y: 10, width: 200, height: 15)
+        labelHead.textColor = .black
+        viewHead.addSubview(iconHead)
+        viewHead.addSubview(labelHead)
     }
 }
