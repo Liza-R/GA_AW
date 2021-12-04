@@ -124,6 +124,25 @@ class ViewVC{
             createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: contentForScroll_View.frame.width/2 + 5, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
             createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i])
         }
+        let openMapButton = UIButton(),
+            weatherInCityLabel = UILabel(),
+            imageBottom = UIImageView()
+        
+        openMapButton.frame = CGRect(x: 0, y: pressure_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 45)
+        openMapButton.backgroundColor = .yellow
+        
+        weatherInCityLabel.frame = CGRect(x: 0, y: openMapButton.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 20)
+        weatherInCityLabel.textAlignment = .center
+        weatherInCityLabel.textColor = .white
+        weatherInCityLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        weatherInCityLabel.text = "Weather in city: Moscow"
+        
+        imageBottom.frame = CGRect(x: contentForScroll_View.frame.width/2 - 12.5, y: weatherInCityLabel.frame.maxY + 10, width: 25, height: 25)
+        imageBottom.backgroundColor = .green
+        
+        contentForScroll_View.addSubview(openMapButton)
+        contentForScroll_View.addSubview(weatherInCityLabel)
+        contentForScroll_View.addSubview(imageBottom)
     }
  
     /**
