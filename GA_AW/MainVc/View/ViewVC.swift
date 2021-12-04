@@ -14,27 +14,22 @@ class ViewVC{
                 mainTemp_Label = UILabel(),
                 description_Label = UILabel(),
                 maxminTemp_Label = UILabel(),
-    
                 weather_Scroll = UIScrollView(),
                 contentForScroll_View = UIView(),
                 warning_View = UIView(),
                 hourForecast_View = UIView(),
                 hourForecast_Scroll = UIScrollView(),
                 contentForHourScroll_View = UIView(),
-    //stacks or collections
-
                 forecastTable_View = UIView(),
                 mapFalls_View = UIView(),
-                //stacks or collections
-                
-//                uvIndex_View = UIView(),
-//                sunrise_View = UIView(),
-//                wind_View = UIView(),
-//                falls_View = UIView(),
-//                feels_View = UIView(),
-//                humidity_View = UIView(),
-//                visibility_View = UIView(),
-//                pressure_View = UIView(),
+                uvIndex_View = UIView(),
+                sunrise_View = UIView(),
+                wind_View = UIView(),
+                falls_View = UIView(),
+                feels_View = UIView(),
+                humidity_View = UIView(),
+                visibility_View = UIView(),
+                pressure_View = UIView(),
                 botton_View = UIView(),
                 createUI = CreateUIs()
 
@@ -113,10 +108,6 @@ class ViewVC{
     func createLeftInfoViews(){
         let headName = ["УФ-ИНДЕКС", "ВЕТЕР", "ОЩУЩАЕТСЯ КАК", "ВИДИМОСТЬ"],
         headIcons = [imSun, imWind, imFeels, imEye],
-        uvIndex_View = UIView(),
-        wind_View = UIView(),
-        feels_View = UIView(),
-        visibility_View = UIView(),
         additionalViews = [uvIndex_View, wind_View, feels_View, visibility_View],
         coordViews = [mapFalls_View, uvIndex_View, wind_View, feels_View]
         for i in 0...3{
@@ -127,10 +118,6 @@ class ViewVC{
     func createRightInfoViews(){
         let headName = ["ВОСХОД СОЛНЦА", "ОСАДКИ", "ВЛАЖНОСТЬ", "ДАВЛЕНИЕ"],
         headIcons = [imSunR, imFalls, imHum, imPress],
-        sunrise_View = UIView(),
-        falls_View = UIView(),
-        humidity_View = UIView(),
-        pressure_View = UIView(),
         additionalViews = [sunrise_View, falls_View, humidity_View, pressure_View],
         coordViews = [mapFalls_View, sunrise_View, falls_View, humidity_View]
         for i in 0...3{
@@ -144,12 +131,29 @@ class ViewVC{
         - mainView: is output UIView,
         - device: is output device (iPhone or iPad)
      */
-    func createButtomView(mainView: UIView, device: String){
+    func createBottomView(mainView: UIView, device: String){
         mainView_ = mainView
         mainW = mainView.frame.width
         mainH = mainView.frame.height
         mainView.backgroundColor = .blue
         device_ = device
         createUI.createViews(userView: botton_View, baseView: mainView_, x: 0, y: mainView_.frame.maxY - 80, width: mainW, height: 80, cornerRad: 0, color: backgroundViewsColor_)
+        let pageContr = UIPageControl(),
+            mapButton = UIButton(),
+            settingButton = UIButton()
+        
+        botton_View.addSubview(mapButton)
+        botton_View.addSubview(pageContr)
+        botton_View.addSubview(settingButton)
+        
+        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
+        mapButton.backgroundColor = .red
+        
+        pageContr.numberOfPages = 5
+        pageContr.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: botton_View.frame.width - 120, height: 30)
+        pageContr.backgroundColor = .blue
+        
+        settingButton.frame = CGRect(x: pageContr.frame.maxX + 10, y: 10, width: 30, height: 30)
+        settingButton.backgroundColor = .red
     }
 }

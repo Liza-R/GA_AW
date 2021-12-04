@@ -20,4 +20,5 @@ let imClock: UIImage = UIImage(named: "clockHeader") ?? .init(),
     imWind: UIImage = UIImage(named: "windHeader") ?? .init(),
     imWarn: UIImage = UIImage(named: "warningHeader") ?? .init(),
     imFalls: UIImage = UIImage(named: "fallsHeader") ?? .init(),
-    imHum: UIImage = UIImage(named: "humHeader") ?? .init()
+    imHum: UIImage = UIImage(named: "humHeader") ?? .init(),
+    imMap: UIImage = UIImage(named: "map") ?? .init()

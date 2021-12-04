@@ -18,7 +18,7 @@ class ViewController: UIViewController{
         daysForecastTable.delegate = self
         daysForecastTable.dataSource = self
         let createUIs = ViewVC()
-        createUIs.createButtomView(mainView: view, device: UIDevice.current.model)
+        createUIs.createBottomView(mainView: view, device: UIDevice.current.model)
         createUIs.createAllViews()
         createUIs.createAllLabels()
         createUIs.createAllScrolls()
