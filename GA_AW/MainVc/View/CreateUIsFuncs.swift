@@ -21,7 +21,7 @@ class CreateUIs{
         - height: is height userView,
         - cornerRad: the radius to use when drawing rounded corners for the layer’s background
      */
-    func createViews(userView: UIView, baseView: UIView, color: UIColor, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat){
+    func createViews(userView: UIView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat, color: UIColor){
         userView.backgroundColor = color
         userView.frame = CGRect(x: x, y: y, width: width, height: height)
         userView.autoresizingMask = .flexibleWidth
@@ -33,6 +33,7 @@ class CreateUIs{
      Creation of UI element (UILabels).
         - userLabel: is input label,
         - baseView: is view to host the userLabel,
+        - color: is text color for userLabel,
         - text: is text for userLabel,
         - x: is x point,
         - y: is y point,
@@ -41,13 +42,13 @@ class CreateUIs{
         - fontName: is font name,
         - fontSize: is font size
      */
-    func createLabels(userLabel: UILabel, baseView: UIView, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, fontName: String, fontSize: CGFloat){
+    func createLabels(userLabel: UILabel, baseView: UIView, color: UIColor, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, fontName: String, fontSize: CGFloat){
         userLabel.text = text
         userLabel.frame = CGRect(x: x, y: y, width: width, height: height)
         userLabel.font = UIFont(name: fontName, size: fontSize)
         userLabel.textAlignment = .center
         userLabel.autoresizingMask = .flexibleWidth
-        userLabel.textColor = .white
+        userLabel.textColor = color
         baseView.addSubview(userLabel)
     }
     
@@ -64,14 +65,15 @@ class CreateUIs{
         - contentSizeW: is width of contentView,
         - contentSizeH: is heigth of contentView,
         - bounce: is controls whether the scroll view bounces past the edge of content and back again,
-        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background,
+        - backColor: is color for UIScrollView backgroundColor
      */
-    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, bounce: Bool, cornerRad: CGFloat){
+    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, bounce: Bool, cornerRad: CGFloat, backColor: UIColor){
         let contentViewSize = CGSize(width: contentSizeW, height: contentSizeH)
         scroll.frame = .zero
         scroll.bounces = bounce
         scroll.layer.cornerRadius = cornerRad
-        scroll.backgroundColor = .clear
+        scroll.backgroundColor = backColor
         scroll.contentSize = contentViewSize
         scroll.autoresizingMask = .flexibleWidth
         baseView.addSubview(scroll)

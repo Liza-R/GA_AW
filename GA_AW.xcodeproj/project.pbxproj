@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203E95E8275B530D00F70452 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E7275B530D00F70452 /* Fonts.swift */; };
+		203E95EA275B531500F70452 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E9275B531500F70452 /* Icons.swift */; };
+		203E95EC275B532200F70452 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95EB275B532200F70452 /* Colors.swift */; };
 		207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */; };
 		207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */; };
 		20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11EF2758D5540085D39D /* AppDelegate.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203E95E7275B530D00F70452 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		203E95E9275B531500F70452 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		203E95EB275B532200F70452 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUIsFuncs.swift; sourceTree = "<group>"; };
 		207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		20FE11EC2758D5540085D39D /* GA_AW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GA_AW.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,9 +88,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		203E95ED275B565100F70452 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				203E95EB275B532200F70452 /* Colors.swift */,
+				203E95E9275B531500F70452 /* Icons.swift */,
+				203E95E7275B530D00F70452 /* Fonts.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
 		207966D4275A4BF40033EBCD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				203E95ED275B565100F70452 /* Design */,
 				207966D7275A6C500033EBCD /* TouchClasses */,
 				20FE122C275A36DC0085D39D /* ViewVC.swift */,
 				207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */,
@@ -306,10 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203E95E8275B530D00F70452 /* Fonts.swift in Sources */,
+				203E95EC275B532200F70452 /* Colors.swift in Sources */,
 				20FE11F42758D5540085D39D /* ViewController.swift in Sources */,
 				207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */,
 				20FE11FA2758D5540085D39D /* GA_AW.xcdatamodeld in Sources */,
 				20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */,
+				203E95EA275B531500F70452 /* Icons.swift in Sources */,
 				207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */,
 				20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */,
 				20FE122D275A36DC0085D39D /* ViewVC.swift in Sources */,
