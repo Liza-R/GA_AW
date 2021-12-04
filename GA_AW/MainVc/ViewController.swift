@@ -22,14 +22,3 @@ class ViewController: UIViewController{
 //        createUIs.createRightInfoViews()
     }
 }
-
-//extension ViewController: UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath) as! ForecastTableViewCell
-//        cell.date_Label.text = "\(indexPath.row)"
-//        return cell
-//    }
-//}

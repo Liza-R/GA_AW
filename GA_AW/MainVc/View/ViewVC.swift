@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ViewVC{
+class ViewVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let mainInfo_View = UIView(),
                 cityName_Label = UILabel(),
                 mainTemp_Label = UILabel(),
@@ -21,8 +21,9 @@ class ViewVC{
                 hourForecast_View = UIView(),
                 hourForecast_Scroll = UIScrollView(),
                 contentForHourScroll_View = UIView(),
-                //stacks or collections
+    //stacks or collections
                 forecastTable = UITableView(),
+                forecastTable_View = UIView(),
                 mapFalls_View = UIView(),
                 //stacks or collections
                 
@@ -50,7 +51,9 @@ class ViewVC{
         createUI.createViews(userView: mainInfo_View, baseView: mainView_, x: 20, y: 40, width: mainW - 40, height: mainH/3, cornerRad: 0, color: .black)
         createUI.createViews(userView: warning_View, baseView: contentForScroll_View, x: 0, y: 0, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
         createUI.createViews(userView: hourForecast_View, baseView: contentForScroll_View, x: 0, y: warning_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
+        createUI.createViews(userView: forecastTable_View, baseView: contentForScroll_View, x: 0, y: hourForecast_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: mainH - 200, cornerRad: 15, color: backgroundViewsColor_)
         createUI.addHeader(baseView: hourForecast_View, text: "ПОЧАСОВОЙ ПРОГНОЗ", icon: imClock)
+        createUI.addHeader(baseView: forecastTable_View, text: "ПРОГНОЗ НА 10ДН", icon: imCalend)
     }
     
     /**
@@ -73,7 +76,7 @@ class ViewVC{
 
         var contentSizeW: CGFloat = 1000
         if contentSizeW < mainW{ contentSizeW = mainW }
-        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: contentSizeW, contentSizeH: 150, bounce: false, cornerRad: 15, backColor: .clear)
+        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: contentSizeW, contentSizeH: 150, bounce: false, cornerRad: 15, backColor: .yellow)
     }
     
     /**
@@ -81,9 +84,9 @@ class ViewVC{
         - mainView: is output view.
      */
     func createAllTables(){
-        createUI.createTable(table: forecastTable, baseView: contentForScroll_View, x: 0, y: hourForecast_View.frame.maxY + 10, width: weather_Scroll.frame.width, height: mainH - 200, color: backgroundViewsColor_, cornerRad: 15, rowH: 50)
+        createUI.createTable(table: forecastTable, baseView: forecastTable_View, x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 230, color: .green, cornerRad: 15, rowH: 50)
         forecastTable.register(ForecastTableViewCell.self, forCellReuseIdentifier: "forecastCell")
-        createUI.addHeader(baseView: forecastTable, text: "ПРОГНОЗ НА 10ДН", icon: imCalend)
+        
     }
     
     /**
@@ -91,7 +94,7 @@ class ViewVC{
         - mainView: is output view.
      */
     func createMap(){
-        createUI.createViews(userView: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable.frame.maxY + 10, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.3, cornerRad: 15, color: backgroundViewsColor_)
+        createUI.createViews(userView: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.3, cornerRad: 15, color: backgroundViewsColor_)
         createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr)
     }
     
