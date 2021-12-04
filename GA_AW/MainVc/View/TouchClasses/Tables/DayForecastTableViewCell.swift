@@ -64,7 +64,7 @@ class DayForecastTableViewCell: UITableViewCell {
         fallWeather_Color.layer.cornerRadius = 2
         fallWeather_Color.backgroundColor = .blue
         
-        fallWeather_Circle.frame = CGRect(x: 10, y: 0, width: 6, height: 6)
+        fallWeather_Circle.frame = CGRect(x: 10, y: -1, width: 6, height: 6)
         fallWeather_Circle.layer.cornerRadius = 3
         fallWeather_Circle.backgroundColor = .white
         

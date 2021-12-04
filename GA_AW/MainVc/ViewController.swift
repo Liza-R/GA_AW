@@ -15,8 +15,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
-        hoursForecastCollection?.dataSource = self
-        hoursForecastCollection?.delegate = self
         daysForecastTable.delegate = self
         daysForecastTable.dataSource = self
         let createUIs = ViewVC()
@@ -26,6 +24,8 @@ class ViewController: UIViewController{
         createUIs.createAllScrolls()
         createUIs.createAllTables(table: daysForecastTable)
         createUIs.createMap()
+        createUIs.createLeftInfoViews()
+        createUIs.createRightInfoViews()
         createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
         hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
         hoursForecastCollection?.dataSource = self
@@ -61,3 +61,4 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
         return cell
     }
 }
+

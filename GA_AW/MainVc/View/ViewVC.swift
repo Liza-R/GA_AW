@@ -64,7 +64,6 @@ class ViewVC{
         collect?.backgroundColor = .red
         hourForecast_Scroll.addSubview(collect ?? UICollectionView())
     }
-    
     /**
      Calling a function to create a new UILabel with the specified parameters.
      */
@@ -82,7 +81,7 @@ class ViewVC{
         createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2000, bounce: true, cornerRad: 0, backColor: .clear)
         var contentSizeW: CGFloat = 1000
         if contentSizeW < mainW{ contentSizeW = mainW }
-        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, bounce: false, cornerRad: 15, backColor: .yellow)
+        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, bounce: true, cornerRad: 15, backColor: .yellow)
     }
     
     /**
@@ -111,31 +110,35 @@ class ViewVC{
         createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr)
     }
     
-//    func createLeftInfoViews(){
-//        createUI.createViews(userView: uvIndex_View, baseView: contentForScroll_View, x: 0, y: mapFalls_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: uvIndex_View, text: "УФ-ИНДЕКС", icon: imSun)
-//        createUI.createViews(userView: wind_View, baseView: contentForScroll_View, x: 0, y: uvIndex_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: wind_View, text: "ВЕТЕР", icon: imWind)
-//        createUI.createViews(userView: feels_View, baseView: contentForScroll_View, x: 0, y: wind_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: feels_View, text: "ОЩУЩАЕТСЯ КАК", icon: imFeels)
-//        createUI.createViews(userView: visibility_View, baseView: contentForScroll_View, x: 0, y: feels_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: visibility_View, text: "ВИДИМОСТЬ", icon: imEye)
-//    }
-//    func createRightInfoViews(){
-//        createUI.createViews(userView: sunrise_View, baseView: contentForScroll_View, x: uvIndex_View.frame.maxX + 10, y: mapFalls_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: sunrise_View, text: "ВОСХОД СОЛНЦА", icon: imSunR)
-//
-//        createUI.createViews(userView: falls_View, baseView: contentForScroll_View, x: wind_View.frame.maxX + 10, y: sunrise_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: falls_View, text: "ОСАДКИ", icon: imUmbr)
-//
-//        createUI.createViews(userView: humidity_View, baseView: contentForScroll_View, x: feels_View.frame.maxX + 10, y: falls_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: humidity_View, text: "ВЛАЖНОСТЬ", icon: imUmbr)
-//
-//        createUI.createViews(userView: pressure_View, baseView: contentForScroll_View, x: visibility_View.frame.maxX + 10, y: humidity_View.frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-//        createUI.addHeader(baseView: pressure_View, text: "ДАВЛЕНИЕ", icon: imPress)
-//    }
-//
-    
+    func createLeftInfoViews(){
+        let headName = ["УФ-ИНДЕКС", "ВЕТЕР", "ОЩУЩАЕТСЯ КАК", "ВИДИМОСТЬ"],
+        headIcons = [imSun, imWind, imFeels, imEye],
+        uvIndex_View = UIView(),
+        wind_View = UIView(),
+        feels_View = UIView(),
+        visibility_View = UIView(),
+        additionalViews = [uvIndex_View, wind_View, feels_View, visibility_View],
+        coordViews = [mapFalls_View, uvIndex_View, wind_View, feels_View]
+        for i in 0...3{
+            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: 0, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i])
+        }
+    }
+    func createRightInfoViews(){
+        let headName = ["ВОСХОД СОЛНЦА", "ОСАДКИ", "ВЛАЖНОСТЬ", "ДАВЛЕНИЕ"],
+        headIcons = [imSunR, imFalls, imHum, imPress],
+        sunrise_View = UIView(),
+        falls_View = UIView(),
+        humidity_View = UIView(),
+        pressure_View = UIView(),
+        additionalViews = [sunrise_View, falls_View, humidity_View, pressure_View],
+        coordViews = [mapFalls_View, sunrise_View, falls_View, humidity_View]
+        for i in 0...3{
+            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: contentForScroll_View.frame.width/2 + 5, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i])
+        }
+    }
+ 
     /**
      Calling a function to create a new UIView with the specified parameters.
         - mainView: is output UIView,
