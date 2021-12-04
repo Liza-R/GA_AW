@@ -23,7 +23,7 @@ class ViewVC{
                 contentForHourScroll_View = UIView(),
     //stacks or collections
                 //forecastTable = UITableView(),
-                forecastTable = DayForecastTableViewController(),
+//                forecastTable = DayForecastTableViewController(),
                 forecastTable_View = UIView(),
                 mapFalls_View = UIView(),
                 //stacks or collections
@@ -83,13 +83,19 @@ class ViewVC{
      Calling a function to create a new UITableView with the specified parameters.
         - mainView: is output view.
      */
-    func createAllTables(){
-        forecastTable_View.addSubview(forecastTable.view)
-        forecastTable.view.frame = CGRect(x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 230)
-        forecastTable.view.layer.cornerRadius = 15
-        forecastTable.view.backgroundColor = .black
-//        forecastTable.view.autoresizingMask = .flexibleWidth
-//        forecastTable.didMove(toParent: forecastTable_View)
+    func createAllTables(table: UITableView){
+        forecastTable_View.addSubview(table)
+        table.frame = CGRect(x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 230)
+        table.layer.cornerRadius = 15
+        table.autoresizingMask = .flexibleWidth
+        table.tableFooterView = UIView()
+        table.rowHeight = 60
+        table.separatorStyle = .singleLine
+        table.separatorColor = .white
+        table.isScrollEnabled = false
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
+        table.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)  
     }
     
     /**

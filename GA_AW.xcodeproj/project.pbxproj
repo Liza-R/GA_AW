@@ -10,7 +10,6 @@
 		203E95E8275B530D00F70452 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E7275B530D00F70452 /* Fonts.swift */; };
 		203E95EA275B531500F70452 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E9275B531500F70452 /* Icons.swift */; };
 		203E95EC275B532200F70452 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95EB275B532200F70452 /* Colors.swift */; };
-		203E95F7275B74F700F70452 /* DayForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */; };
 		203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */; };
 		207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */; };
 		20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11EF2758D5540085D39D /* AppDelegate.swift */; };
@@ -46,7 +45,6 @@
 		203E95E7275B530D00F70452 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		203E95E9275B531500F70452 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		203E95EB275B532200F70452 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewController.swift; sourceTree = "<group>"; };
 		203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewCell.swift; sourceTree = "<group>"; };
 		207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUIsFuncs.swift; sourceTree = "<group>"; };
 		20FE11EC2758D5540085D39D /* GA_AW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GA_AW.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +101,6 @@
 		203E95EE275B5B0500F70452 /* Tables */ = {
 			isa = PBXGroup;
 			children = (
-				203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */,
 				203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */,
 			);
 			path = Tables;
@@ -345,7 +342,6 @@
 				203E95E8275B530D00F70452 /* Fonts.swift in Sources */,
 				203E95EC275B532200F70452 /* Colors.swift in Sources */,
 				20FE11F42758D5540085D39D /* ViewController.swift in Sources */,
-				203E95F7275B74F700F70452 /* DayForecastTableViewController.swift in Sources */,
 				207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */,
 				20FE11FA2758D5540085D39D /* GA_AW.xcdatamodeld in Sources */,
 				20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */,
