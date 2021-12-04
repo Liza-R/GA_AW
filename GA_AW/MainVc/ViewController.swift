@@ -28,6 +28,8 @@ class ViewController: UIViewController{
         createUIs.createMap()
         createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
         hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
+        hoursForecastCollection?.dataSource = self
+        hoursForecastCollection?.delegate = self
     }
 }
 
@@ -54,6 +56,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourForecastCell", for: indexPath) as! HourForecastCollectionViewCell
         cell.backgroundColor = .blue
+        cell.hourLabel.text = "\(indexPath.row)"
+        cell.tempLabel.text = "-100*"
         return cell
     }
 }

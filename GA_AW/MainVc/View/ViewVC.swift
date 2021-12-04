@@ -58,7 +58,8 @@ class ViewVC{
     func createHorizontalCollection(collect: inout UICollectionView?){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.itemSize = CGSize(width: 80, height: hourForecast_Scroll.frame.height)
+        layout.minimumInteritemSpacing = 0
         collect = UICollectionView(frame: contentForHourScroll_View.frame, collectionViewLayout: layout)
         collect?.backgroundColor = .red
         hourForecast_Scroll.addSubview(collect ?? UICollectionView())
@@ -81,7 +82,7 @@ class ViewVC{
         createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2000, bounce: true, cornerRad: 0, backColor: .clear)
         var contentSizeW: CGFloat = 1000
         if contentSizeW < mainW{ contentSizeW = mainW }
-        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: contentSizeW, contentSizeH: 120, bounce: false, cornerRad: 15, backColor: .yellow)
+        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, bounce: false, cornerRad: 15, backColor: .yellow)
     }
     
     /**
