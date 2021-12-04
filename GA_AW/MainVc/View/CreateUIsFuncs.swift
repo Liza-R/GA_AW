@@ -97,16 +97,16 @@ class CreateUIs{
         - color: is color for table backgroundColor,
         - cornerRad: the radius to use when drawing rounded corners for the layer’s background
      */
-    func createTable(table: UITableView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, cornerRad: CGFloat, rowH: CGFloat){
-        baseView.addSubview(table)
-        table.frame = CGRect(x: x, y: y, width: width, height: height)
-        table.backgroundColor = color
-        table.layer.cornerRadius = cornerRad
-        table.autoresizingMask = .flexibleWidth
-        table.rowHeight = rowH
-        table.separatorColor = .white
-        table.separatorStyle = .singleLine
-    }
+//    func createTable(table: UITableView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, cornerRad: CGFloat, rowH: CGFloat){
+//        baseView.addSubview(table)
+//        table.frame = CGRect(x: x, y: y, width: width, height: height)
+//        table.backgroundColor = color
+//        table.layer.cornerRadius = cornerRad
+//        table.autoresizingMask = .flexibleWidth
+//        table.rowHeight = rowH
+//        table.separatorColor = .white
+//        table.separatorStyle = .singleLine
+//    }
     
     /**
      Creation of UI element (UIView with map).

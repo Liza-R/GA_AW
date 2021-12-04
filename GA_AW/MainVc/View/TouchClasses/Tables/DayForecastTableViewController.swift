@@ -1,5 +1,5 @@
 //
-//  DaysForecastTableViewController.swift
+//  DayForecastTableViewController.swift
 //  GA_AW
 //
 //  Created by Elizaveta Rogozhina on 04/12/2021.
@@ -7,39 +7,38 @@
 
 import UIKit
 
-class DaysForecastTableViewController: UITableViewController {
+class DayForecastTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
+        self.tableView.tableFooterView = UIView()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.rowHeight = 60
+        self.tableView.separatorStyle = .singleLine
+        self.tableView.separatorColor = .white
+        self.tableView.isScrollEnabled = false
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.showsHorizontalScrollIndicator = false
+        self.tableView.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dayForecastCell", for: indexPath) as! DayForecastTableViewCell
+//        cell.textLabel?.text = "hour\(indexPath.row)"
+        cell.hourWeather_Label.text = "hour\(indexPath.row)"
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

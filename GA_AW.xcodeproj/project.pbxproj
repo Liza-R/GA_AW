@@ -10,11 +10,9 @@
 		203E95E8275B530D00F70452 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E7275B530D00F70452 /* Fonts.swift */; };
 		203E95EA275B531500F70452 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E9275B531500F70452 /* Icons.swift */; };
 		203E95EC275B532200F70452 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95EB275B532200F70452 /* Colors.swift */; };
-		203E95F1275B5B3600F70452 /* HourForecastCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F0275B5B3600F70452 /* HourForecastCollectionViewController.swift */; };
-		203E95F3275B5B5500F70452 /* DaysForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F2275B5B5500F70452 /* DaysForecastTableViewController.swift */; };
-		203E95F5275B5B8700F70452 /* HourForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F4275B5B8700F70452 /* HourForecastCollectionViewCell.swift */; };
+		203E95F7275B74F700F70452 /* DayForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */; };
+		203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */; };
 		207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */; };
-		207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */; };
 		20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11EF2758D5540085D39D /* AppDelegate.swift */; };
 		20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11F12758D5540085D39D /* SceneDelegate.swift */; };
 		20FE11F42758D5540085D39D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11F32758D5540085D39D /* ViewController.swift */; };
@@ -48,11 +46,9 @@
 		203E95E7275B530D00F70452 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		203E95E9275B531500F70452 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		203E95EB275B532200F70452 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		203E95F0275B5B3600F70452 /* HourForecastCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastCollectionViewController.swift; sourceTree = "<group>"; };
-		203E95F2275B5B5500F70452 /* DaysForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysForecastTableViewController.swift; sourceTree = "<group>"; };
-		203E95F4275B5B8700F70452 /* HourForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastCollectionViewCell.swift; sourceTree = "<group>"; };
+		203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewController.swift; sourceTree = "<group>"; };
+		203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewCell.swift; sourceTree = "<group>"; };
 		207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUIsFuncs.swift; sourceTree = "<group>"; };
-		207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		20FE11EC2758D5540085D39D /* GA_AW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GA_AW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FE11EF2758D5540085D39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20FE11F12758D5540085D39D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +103,8 @@
 		203E95EE275B5B0500F70452 /* Tables */ = {
 			isa = PBXGroup;
 			children = (
-				203E95F2275B5B5500F70452 /* DaysForecastTableViewController.swift */,
-				207966D8275A6C720033EBCD /* ForecastTableViewCell.swift */,
+				203E95F6275B74F700F70452 /* DayForecastTableViewController.swift */,
+				203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -116,8 +112,6 @@
 		203E95EF275B5B1400F70452 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				203E95F0275B5B3600F70452 /* HourForecastCollectionViewController.swift */,
-				203E95F4275B5B8700F70452 /* HourForecastCollectionViewCell.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -351,15 +345,13 @@
 				203E95E8275B530D00F70452 /* Fonts.swift in Sources */,
 				203E95EC275B532200F70452 /* Colors.swift in Sources */,
 				20FE11F42758D5540085D39D /* ViewController.swift in Sources */,
-				203E95F3275B5B5500F70452 /* DaysForecastTableViewController.swift in Sources */,
+				203E95F7275B74F700F70452 /* DayForecastTableViewController.swift in Sources */,
 				207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */,
 				20FE11FA2758D5540085D39D /* GA_AW.xcdatamodeld in Sources */,
 				20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */,
 				203E95EA275B531500F70452 /* Icons.swift in Sources */,
-				207966D9275A6C720033EBCD /* ForecastTableViewCell.swift in Sources */,
-				203E95F1275B5B3600F70452 /* HourForecastCollectionViewController.swift in Sources */,
 				20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */,
-				203E95F5275B5B8700F70452 /* HourForecastCollectionViewCell.swift in Sources */,
+				203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */,
 				20FE122D275A36DC0085D39D /* ViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ViewVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ViewVC{
     private let mainInfo_View = UIView(),
                 cityName_Label = UILabel(),
                 mainTemp_Label = UILabel(),
@@ -22,7 +22,8 @@ class ViewVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
                 hourForecast_Scroll = UIScrollView(),
                 contentForHourScroll_View = UIView(),
     //stacks or collections
-                forecastTable = UITableView(),
+                //forecastTable = UITableView(),
+                forecastTable = DayForecastTableViewController(),
                 forecastTable_View = UIView(),
                 mapFalls_View = UIView(),
                 //stacks or collections
@@ -73,7 +74,6 @@ class ViewVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
      */
     func createAllScrolls(){
         createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2000, bounce: true, cornerRad: 0, backColor: .clear)
-
         var contentSizeW: CGFloat = 1000
         if contentSizeW < mainW{ contentSizeW = mainW }
         createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: contentSizeW, contentSizeH: 150, bounce: false, cornerRad: 15, backColor: .yellow)
@@ -84,9 +84,12 @@ class ViewVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         - mainView: is output view.
      */
     func createAllTables(){
-        createUI.createTable(table: forecastTable, baseView: forecastTable_View, x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 230, color: .green, cornerRad: 15, rowH: 50)
-        forecastTable.register(ForecastTableViewCell.self, forCellReuseIdentifier: "forecastCell")
-        
+        forecastTable_View.addSubview(forecastTable.view)
+        forecastTable.view.frame = CGRect(x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 230)
+        forecastTable.view.layer.cornerRadius = 15
+        forecastTable.view.backgroundColor = .black
+//        forecastTable.view.autoresizingMask = .flexibleWidth
+//        forecastTable.didMove(toParent: forecastTable_View)
     }
     
     /**
