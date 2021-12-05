@@ -158,23 +158,5 @@ class ViewVC{
         mainW = mainView.frame.width
         mainH = mainView.frame.height
         device_ = device
-//        createUI.createViews(userView: botton_View, baseView: mainView_, x: 0, y: mainView_.frame.maxY - 80, width: mainW, height: 80, cornerRad: 0, color: backgroundViewsColor_)
-//        let pageContr = UIPageControl(),
-//            mapButton = UIButton(),
-//            settingButton = UIButton()
-//
-//        botton_View.addSubview(mapButton)
-//        botton_View.addSubview(pageContr)
-//        botton_View.addSubview(settingButton)
-//
-//        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
-//        mapButton.backgroundColor = .red
-//
-//        pageContr.numberOfPages = 5
-//        pageContr.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: botton_View.frame.width - 120, height: 30)
-//        pageContr.backgroundColor = .blue
-//
-//        settingButton.frame = CGRect(x: pageContr.frame.maxX + 10, y: 10, width: 30, height: 30)
-//        settingButton.backgroundColor = .red
     }
 }

@@ -15,6 +15,8 @@ class ViewController: UIViewController{
                 mapButton = UIButton(),
                 configButton = UIButton()
     
+    var hoursForecastCollection: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(bottomView)
@@ -24,6 +26,9 @@ class ViewController: UIViewController{
         bottomView.addSubview(configButton)
         mainScroll.delegate = self
         mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
+        
+        
+       
         
         mainPageControll.numberOfPages = 5
         bottomView.backgroundColor = .blue
@@ -63,22 +68,22 @@ class ViewController: UIViewController{
             createUIs.createAllLabels()
             createUIs.createAllScrolls()
             
-            let daysForecastTable = UITableView()
-            daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
-            daysForecastTable.delegate = self
-            daysForecastTable.dataSource = self
-            createUIs.createAllTables(table: daysForecastTable)
+            hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
+            hoursForecastCollection?.dataSource = self
+            hoursForecastCollection?.delegate = self
+            createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
             
             createUIs.createMap()
             createUIs.addHeaders()
             createUIs.createLeftInfoViews()
             createUIs.createRightInfoViews()
             
-            var hoursForecastCollection: UICollectionView?
-            hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
-            hoursForecastCollection?.dataSource = self
-            hoursForecastCollection?.delegate = self
-            createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
+            let daysForecastTable = UITableView()
+            daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
+            daysForecastTable.delegate = self
+            daysForecastTable.dataSource = self
+            createUIs.createAllTables(table: daysForecastTable)
+
         }
     }
     
