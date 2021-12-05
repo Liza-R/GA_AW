@@ -15,7 +15,7 @@ class ViewController: UIViewController{
                 mapButton = UIButton(),
                 configButton = UIButton()
     
-    var hoursForecastCollection: UICollectionView?
+    private var hoursForecastCollection: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +26,7 @@ class ViewController: UIViewController{
         bottomView.addSubview(configButton)
         mainScroll.delegate = self
         mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
-        
-        
-       
-        
+
         mainPageControll.numberOfPages = 5
         bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
@@ -86,7 +83,7 @@ class ViewController: UIViewController{
 
         }
     }
-    
+
     struct AppUtility {
         static func lockOrientation(_ orientation: UIInterfaceOrientationMask){
             if let delegate = UIApplication.shared.delegate as? AppDelegate {
