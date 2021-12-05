@@ -113,6 +113,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         cell.tempHumWeather_Label.text = "100%"
         cell.tempMaxWeather_Label.text = "10*"
         cell.tempMinWeather_Label.text = "-10*"
+        cell.selectionStyle = .none
         return cell
     }
     

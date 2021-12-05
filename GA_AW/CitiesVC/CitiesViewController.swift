@@ -24,11 +24,28 @@ class CitiesViewController: UIViewController {
         citiesTable.dataSource = self
         citiesTable.frame = CGRect(x: 0, y: headerView.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height - headerView.frame.height)
         
-        let footerTable_View = UIView()
+        let footerTable_View = UIView(),
+            weather_Label = UILabel(),
+            searchCity = UISearchBar(),
+            settingButton = UIButton()
+        
+        headerView.addSubview(weather_Label)
+        headerView.addSubview(searchCity)
+        headerView.addSubview(settingButton)
+        
+        weather_Label.text = "Weather"
+        weather_Label.font = UIFont.boldSystemFont(ofSize: 33)
+        weather_Label.textColor = .white
+        weather_Label.frame = CGRect(x: 20, y: headerView.frame.size.height/2 - 10, width: headerView.frame.size.width/1.5, height: 30)
+            
+        searchCity.frame = CGRect(x: 0, y: weather_Label.frame.maxY + 10, width: headerView.frame.size.width, height: 50)
+        searchCity.placeholder = "Поиск города или аэропорта"
+        
+        settingButton.backgroundColor = .red
+        settingButton.frame = CGRect(x: headerView.frame.size.width - 50, y: 10, width: 30, height: 30)
+        
         citiesTable.tableFooterView = footerTable_View
 
-        
-        
         footerTable_View.backgroundColor = .green
         footerTable_View.frame.size = CGSize(width: citiesTable.frame.size.width, height: 100)
         view.addSubview(citiesTable)
@@ -45,6 +62,7 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate{
         cell.temp_Label.text = "-00*"
         cell.maxTemp_Label.text = "Max: -00*"
         cell.minTemp_Label.text = "Min: -00*"
+        cell.selectionStyle = .none
         return cell
     }
     
