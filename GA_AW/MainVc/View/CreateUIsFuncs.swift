@@ -117,7 +117,6 @@ class CreateUIs{
         iconHead.backgroundColor = .yellow
         labelHead.text = text
         labelHead.font = font
-        print(baseView.frame.width)
         labelHead.frame = CGRect(x: iconHead.frame.maxX + 5, y: 10, width: baseView.frame.width - 40, height: 15)
         labelHead.backgroundColor = .cyan
         labelHead.textColor = .black

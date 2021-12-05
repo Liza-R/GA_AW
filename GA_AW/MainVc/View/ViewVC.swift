@@ -71,7 +71,8 @@ class ViewVC{
      Calling a function to create a new UIScrollView with the specified parameters.
      */
     func createAllScrolls(){
-        createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2120, cornerRad: 0, backColor: .clear)
+        createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 50, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2120, cornerRad: 0, backColor: .clear)
+        
         createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, cornerRad: 15, backColor: .yellow)
     }
     
@@ -156,25 +157,24 @@ class ViewVC{
         mainView_ = mainView
         mainW = mainView.frame.width
         mainH = mainView.frame.height
-        mainView.backgroundColor = .blue
         device_ = device
-        createUI.createViews(userView: botton_View, baseView: mainView_, x: 0, y: mainView_.frame.maxY - 80, width: mainW, height: 80, cornerRad: 0, color: backgroundViewsColor_)
-        let pageContr = UIPageControl(),
-            mapButton = UIButton(),
-            settingButton = UIButton()
-        
-        botton_View.addSubview(mapButton)
-        botton_View.addSubview(pageContr)
-        botton_View.addSubview(settingButton)
-        
-        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
-        mapButton.backgroundColor = .red
-        
-        pageContr.numberOfPages = 5
-        pageContr.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: botton_View.frame.width - 120, height: 30)
-        pageContr.backgroundColor = .blue
-        
-        settingButton.frame = CGRect(x: pageContr.frame.maxX + 10, y: 10, width: 30, height: 30)
-        settingButton.backgroundColor = .red
+//        createUI.createViews(userView: botton_View, baseView: mainView_, x: 0, y: mainView_.frame.maxY - 80, width: mainW, height: 80, cornerRad: 0, color: backgroundViewsColor_)
+//        let pageContr = UIPageControl(),
+//            mapButton = UIButton(),
+//            settingButton = UIButton()
+//
+//        botton_View.addSubview(mapButton)
+//        botton_View.addSubview(pageContr)
+//        botton_View.addSubview(settingButton)
+//
+//        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
+//        mapButton.backgroundColor = .red
+//
+//        pageContr.numberOfPages = 5
+//        pageContr.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: botton_View.frame.width - 120, height: 30)
+//        pageContr.backgroundColor = .blue
+//
+//        settingButton.frame = CGRect(x: pageContr.frame.maxX + 10, y: 10, width: 30, height: 30)
+//        settingButton.backgroundColor = .red
     }
 }

@@ -8,29 +8,70 @@
 import UIKit
 
 class ViewController: UIViewController{
-
-    let daysForecastTable = UITableView()
-    var hoursForecastCollection: UICollectionView?
+    
+    private let mainScroll = UIScrollView(),
+                mainPageControll = UIPageControl(),
+                bottomView = UIView(),
+                mapButton = UIButton(),
+                configButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
-        daysForecastTable.delegate = self
-        daysForecastTable.dataSource = self
-        let createUIs = ViewVC()
-        createUIs.createBottomView(mainView: view, device: UIDevice.current.model)
-        createUIs.createAllViews()
-        createUIs.createAllLabels()
-        createUIs.createAllScrolls()
-        createUIs.createAllTables(table: daysForecastTable)
-        createUIs.createMap()
-        createUIs.addHeaders()
-        createUIs.createLeftInfoViews()
-        createUIs.createRightInfoViews()
-        createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
-        hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
-        hoursForecastCollection?.dataSource = self
-        hoursForecastCollection?.delegate = self
+        view.addSubview(bottomView)
+        view.addSubview(mainScroll)
+        bottomView.addSubview(mainPageControll)
+        bottomView.addSubview(mapButton)
+        bottomView.addSubview(configButton)
+        mainPageControll.numberOfPages = 5
+        bottomView.backgroundColor = .blue
+        mainScroll.backgroundColor = .red
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        bottomView.frame = CGRect(x: 0, y: view.frame.size.height - 80, width: view.frame.size.width, height: 80)
+        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
+        mapButton.backgroundColor = .purple
+        mainPageControll.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: bottomView.frame.size.width - 120, height: 30)
+        configButton.frame = CGRect(x: bottomView.frame.size.width - 50, y: 10, width: 30, height: 30)
+        configButton.backgroundColor = .purple
+        
+        mainScroll.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 80)
+        if mainScroll.subviews.count == 2{
+            configMainScroll()
+        }
+    }
+    
+    private func configMainScroll(){
+        mainScroll.contentSize = CGSize(width: view.frame.size.width * CGFloat(mainPageControll.numberOfPages), height: mainScroll.frame.size.height)
+        mainScroll.isPagingEnabled = true
+        for i in 0..<mainPageControll.numberOfPages{
+            let page = UIView(frame: CGRect(x: CGFloat(i) * view.frame.size.width, y: 0, width: view.frame.size.width, height: mainScroll.frame.size.height))
+            mainScroll.addSubview(page)
+            
+            let createUIs = ViewVC()
+            createUIs.createBottomView(mainView: page, device: UIDevice.current.model)
+            createUIs.createAllViews()
+            createUIs.createAllLabels()
+            createUIs.createAllScrolls()
+            
+            let daysForecastTable = UITableView()
+            daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
+            daysForecastTable.delegate = self
+            daysForecastTable.dataSource = self
+            createUIs.createAllTables(table: daysForecastTable)
+            
+            createUIs.createMap()
+            createUIs.addHeaders()
+            createUIs.createLeftInfoViews()
+            createUIs.createRightInfoViews()
+            
+            var hoursForecastCollection: UICollectionView?
+            hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
+            hoursForecastCollection?.dataSource = self
+            hoursForecastCollection?.delegate = self
+            createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
+        }
     }
     
     struct AppUtility {
