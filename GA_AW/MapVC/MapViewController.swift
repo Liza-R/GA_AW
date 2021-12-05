@@ -10,7 +10,8 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    let map = MKMapView()
+    private let map = MKMapView(),
+                exitButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,16 @@ class MapViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: initialLocation.coordinate.latitude, longitude: initialLocation.coordinate.longitude)
         map.addAnnotation(annotation)
+        map.addSubview(exitButton)
         
+        exitButton.frame = CGRect(x: 20, y: 20, width: 100, height: 30)
+        exitButton.backgroundColor = .red
+        exitButton.addTarget(self, action: #selector(exitSender(_:)), for: .touchUpInside)
+        exitButton.layer.cornerRadius = 5
+        
+    }
+    @objc private func exitSender(_ sender: UIButton){
+        dismiss(animated: true, completion: nil)
     }
 }
 
