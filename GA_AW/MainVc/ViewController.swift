@@ -22,9 +22,17 @@ class ViewController: UIViewController{
         bottomView.addSubview(mainPageControll)
         bottomView.addSubview(mapButton)
         bottomView.addSubview(configButton)
+        mainScroll.delegate = self
+        mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
+        
         mainPageControll.numberOfPages = 5
         bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
+    }
+    
+    @objc private func pageControllChange(_ sender: UIPageControl){
+        let curPage = sender.currentPage
+        mainScroll.setContentOffset(CGPoint(x: CGFloat(curPage) * view.frame.size.width, y: 0), animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -120,3 +128,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
 }
 
+extension ViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        mainPageControll.currentPage = Int(floorf(Float(mainScroll.contentOffset.x) / Float(mainScroll.frame.size.width)))
+    }
+}
