@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		203E95E8275B530D00F70452 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E7275B530D00F70452 /* Fonts.swift */; };
 		203E95EA275B531500F70452 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95E9275B531500F70452 /* Icons.swift */; };
 		203E95EC275B532200F70452 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95EB275B532200F70452 /* Colors.swift */; };
 		203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */; };
@@ -43,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		203E95E7275B530D00F70452 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		203E95E9275B531500F70452 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		203E95EB275B532200F70452 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 			children = (
 				203E95EB275B532200F70452 /* Colors.swift */,
 				203E95E9275B531500F70452 /* Icons.swift */,
-				203E95E7275B530D00F70452 /* Fonts.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -342,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				203E95E8275B530D00F70452 /* Fonts.swift in Sources */,
 				203E95EC275B532200F70452 /* Colors.swift in Sources */,
 				20FE11F42758D5540085D39D /* ViewController.swift in Sources */,
 				207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */,
@@ -528,7 +524,8 @@
 				INFOPLIST_FILE = GA_AW/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -556,7 +553,8 @@
 				INFOPLIST_FILE = GA_AW/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

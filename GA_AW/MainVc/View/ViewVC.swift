@@ -42,12 +42,13 @@ class ViewVC{
      Calling a function to create a new UIView with the specified parameters.
      */
     func createAllViews(){
-        createUI.createViews(userView: mainInfo_View, baseView: mainView_, x: 20, y: 40, width: mainW - 40, height: mainH/3, cornerRad: 0, color: .black)
+        createUI.createViews(userView: mainInfo_View, baseView: mainView_, x: 20, y: 40, width: mainW - 40, height: mainH/2.75, cornerRad: 0, color: .black)
         createUI.createViews(userView: warning_View, baseView: contentForScroll_View, x: 0, y: 0, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
         createUI.createViews(userView: hourForecast_View, baseView: contentForScroll_View, x: 0, y: warning_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-        createUI.createViews(userView: forecastTable_View, baseView: contentForScroll_View, x: 0, y: hourForecast_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: mainH - 215, cornerRad: 15, color: backgroundViewsColor_)
-        createUI.addHeader(baseView: hourForecast_View, text: "ПОЧАСОВОЙ ПРОГНОЗ", icon: imClock)
-        createUI.addHeader(baseView: forecastTable_View, text: "ПРОГНОЗ НА 10ДН", icon: imCalend)
+        createUI.createViews(userView: forecastTable_View, baseView: contentForScroll_View, x: 0, y: hourForecast_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 630, cornerRad: 15, color: backgroundViewsColor_)
+        createUI.addHeader(baseView: warning_View, text: "НЕБЛАГОПРИЯТНЫЕ ПОГОДНЫЕ УСЛОВИЯ", icon: imWarn, font: UIFont.systemFont(ofSize: 10))
+        createUI.addHeader(baseView: hourForecast_View, text: "ПОЧАСОВОЙ ПРОГНОЗ", icon: imClock, font: UIFont.systemFont(ofSize: 15))
+        createUI.addHeader(baseView: forecastTable_View, text: "ПРОГНОЗ НА 10ДН", icon: imCalend, font: UIFont.systemFont(ofSize: 15))
     }
     
     func createHorizontalCollection(collect: inout UICollectionView?){
@@ -63,20 +64,18 @@ class ViewVC{
      Calling a function to create a new UILabel with the specified parameters.
      */
     func createAllLabels(){
-        createUI.createLabels(userLabel: cityName_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Moscow", x: 0, y: mainInfo_View.frame.width/6, width: mainInfo_View.frame.width, height: 45, fontName: fontStyleWeatherInfoText, fontSize: 33)
-        createUI.createLabels(userLabel: mainTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "7°", x: 0, y: cityName_Label.frame.maxY, width: mainInfo_View.frame.width, height: 105, fontName: fontStyleForNumbs, fontSize: 105)
-        createUI.createLabels(userLabel: description_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Cloudy", x: 0, y: mainTemp_Label.frame.maxY - 10, width: mainInfo_View.frame.width, height: 25, fontName: fontStyleWeatherInfoText, fontSize: 20)
-        createUI.createLabels(userLabel: maxminTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "H:8° L:4°", x: 0, y: description_Label.frame.maxY, width: mainInfo_View.frame.width, height: 25, fontName: fontStyleWeatherInfoText, fontSize: 22)
+        createUI.createLabels(userLabel: cityName_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Moscow", x: 0, y: mainInfo_View.frame.width/4, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 33))
+        createUI.createLabels(userLabel: mainTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "7°", x: 0, y: cityName_Label.frame.maxY, width: mainInfo_View.frame.width, height: 75, font: UIFont.systemFont(ofSize: 65))
+        createUI.createLabels(userLabel: description_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Cloudy", x: 0, y: mainTemp_Label.frame.maxY - 10, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 20))
+        createUI.createLabels(userLabel: maxminTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "H:8° L:4°", x: 0, y: description_Label.frame.maxY, width: mainInfo_View.frame.width, height: 25, font: UIFont.systemFont(ofSize: 18))
     }
     
     /**
      Calling a function to create a new UIScrollView with the specified parameters.
      */
     func createAllScrolls(){
-        createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2000, bounce: true, cornerRad: 0, backColor: .clear)
-        var contentSizeW: CGFloat = 1000
-        if contentSizeW < mainW{ contentSizeW = mainW }
-        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, bounce: true, cornerRad: 15, backColor: .yellow)
+        createUI.createScroll(baseView: mainView_, scroll: weather_Scroll, x: 20, y: mainInfo_View.frame.maxY + 10, width: mainW - 40, height: mainH - mainInfo_View.frame.height - 130, contentView: contentForScroll_View, color: .purple, contentSizeW: mainW - 40, contentSizeH: 2120, cornerRad: 0, backColor: .clear)
+        createUI.createScroll(baseView: hourForecast_View, scroll: hourForecast_Scroll, x: 0, y: 30, width: contentForScroll_View.frame.width, height: 120, contentView: contentForHourScroll_View, color: .clear, contentSizeW: 2000, contentSizeH: 120, cornerRad: 15, backColor: .yellow)
     }
     
     /**
@@ -85,7 +84,7 @@ class ViewVC{
      */
     func createAllTables(table: UITableView){
         forecastTable_View.addSubview(table)
-        table.frame = CGRect(x: 0, y: 30, width: weather_Scroll.frame.width, height: mainH - 245)
+        table.frame = CGRect(x: 0, y: 30, width: weather_Scroll.frame.width, height: 600)
         table.layer.cornerRadius = 15
         table.autoresizingMask = .flexibleWidth
         table.rowHeight = 60
@@ -101,8 +100,8 @@ class ViewVC{
      Calling a function to create a new UIView with map with the specified parameters.
      */
     func createMap(){
-        createUI.createViews(userView: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.3, cornerRad: 15, color: backgroundViewsColor_)
-        createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr)
+        createUI.createViews(userView: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.25, cornerRad: 15, color: backgroundViewsColor_)
+        createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr, font: UIFont.systemFont(ofSize: 15))
     }
     
     func createLeftInfoViews(){
@@ -111,8 +110,8 @@ class ViewVC{
         additionalViews = [uvIndex_View, wind_View, feels_View, visibility_View],
         coordViews = [mapFalls_View, uvIndex_View, wind_View, feels_View]
         for i in 0...3{
-            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: 0, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i])
+            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: 0, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 160, cornerRad: 15, color: backgroundViewsColor_)
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: UIFont.systemFont(ofSize: 14))
         }
     }
     func createRightInfoViews(){
@@ -121,8 +120,8 @@ class ViewVC{
         additionalViews = [sunrise_View, falls_View, humidity_View, pressure_View],
         coordViews = [mapFalls_View, sunrise_View, falls_View, humidity_View]
         for i in 0...3{
-            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: contentForScroll_View.frame.width/2 + 5, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 150, cornerRad: 15, color: backgroundViewsColor_)
-            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i])
+            createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: contentForScroll_View.frame.width/2 + 5, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 160, cornerRad: 15, color: backgroundViewsColor_)
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: UIFont.systemFont(ofSize: 14))
         }
         let openMapButton = UIButton(),
             weatherInCityLabel = UILabel(),

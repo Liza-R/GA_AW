@@ -42,10 +42,10 @@ class CreateUIs{
         - fontName: is font name,
         - fontSize: is font size
      */
-    func createLabels(userLabel: UILabel, baseView: UIView, color: UIColor, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, fontName: String, fontSize: CGFloat){
+    func createLabels(userLabel: UILabel, baseView: UIView, color: UIColor, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, font: UIFont){
         userLabel.text = text
         userLabel.frame = CGRect(x: x, y: y, width: width, height: height)
-        userLabel.font = UIFont(name: fontName, size: fontSize)
+        userLabel.font = font
         userLabel.textAlignment = .center
         userLabel.autoresizingMask = .flexibleWidth
         userLabel.textColor = color
@@ -68,10 +68,9 @@ class CreateUIs{
         - cornerRad: the radius to use when drawing rounded corners for the layer’s background,
         - backColor: is color for UIScrollView backgroundColor
      */
-    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, bounce: Bool, cornerRad: CGFloat, backColor: UIColor){
+    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, cornerRad: CGFloat, backColor: UIColor){
         let contentViewSize = CGSize(width: contentSizeW, height: contentSizeH)
         scroll.frame = .zero
-        scroll.bounces = bounce
         scroll.layer.cornerRadius = cornerRad
         scroll.backgroundColor = backColor
         scroll.contentSize = contentViewSize
@@ -86,28 +85,7 @@ class CreateUIs{
         contentView.frame.size = contentViewSize
         scroll.addSubview(contentView)
     }
-    /**
-     Creation of UI element (UITableView).
-        - table: is creation table,
-        - baseView: is view to host the table,
-        - x: is x point,
-        - y: is y point,
-        - width: is width table,
-        - height: is height table,
-        - color: is color for table backgroundColor,
-        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
-     */
-//    func createTable(table: UITableView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, cornerRad: CGFloat, rowH: CGFloat){
-//        baseView.addSubview(table)
-//        table.frame = CGRect(x: x, y: y, width: width, height: height)
-//        table.backgroundColor = color
-//        table.layer.cornerRadius = cornerRad
-//        table.autoresizingMask = .flexibleWidth
-//        table.rowHeight = rowH
-//        table.separatorColor = .white
-//        table.separatorStyle = .singleLine
-//    }
-    
+
     /**
      Creation of UI element (UIView with map).
         - viewForMap: is view for map,
@@ -127,7 +105,7 @@ class CreateUIs{
         baseView.addSubview(viewForMap)
     }
     
-    func addHeader(baseView: UIView, text: String, icon: UIImage){
+    func addHeader(baseView: UIView, text: String, icon: UIImage, font: UIFont){
         let viewHead = UIView(),
             iconHead = UIImageView(),
             labelHead = UILabel()
@@ -137,7 +115,8 @@ class CreateUIs{
         iconHead.frame = CGRect(x: 10, y: 10, width: 15, height: 15)
         iconHead.image = icon
         labelHead.text = text
-        labelHead.frame = CGRect(x: iconHead.frame.maxX + 10, y: 10, width: 200, height: 15)
+        labelHead.font = font
+        labelHead.frame = CGRect(x: iconHead.frame.maxX + 5, y: 10, width: 250, height: 15)
         labelHead.textColor = .black
         viewHead.addSubview(iconHead)
         viewHead.addSubview(labelHead)
