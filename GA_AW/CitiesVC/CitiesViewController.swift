@@ -9,23 +9,28 @@ import UIKit
 
 class CitiesViewController: UIViewController {
     
-    let citiesTable = UITableView()
+    private let citiesTable = UITableView(),
+                headerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(headerView)
+        headerView.backgroundColor = .green
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 150)
         view.backgroundColor = .purple
         citiesTable.rowHeight = 120
         citiesTable.register(CitiesTableViewCell.self, forCellReuseIdentifier: "cityCell")
         citiesTable.delegate = self
         citiesTable.dataSource = self
-        citiesTable.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        citiesTable.frame = CGRect(x: 0, y: headerView.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height - headerView.frame.height)
         
-        let footerTable_View = UIView(),
-            headerTable_View = UIView()
+        let footerTable_View = UIView()
         citiesTable.tableFooterView = footerTable_View
-        citiesTable.tableHeaderView = headerTable_View
+
         
-        //citiesTable.separatorColor = .clear
+        
+        footerTable_View.backgroundColor = .green
+        footerTable_View.frame.size = CGSize(width: citiesTable.frame.size.width, height: 100)
         view.addSubview(citiesTable)
     }
 }
@@ -44,6 +49,6 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 5
+        return 10
     }
 }

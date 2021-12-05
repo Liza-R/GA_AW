@@ -52,21 +52,20 @@ class CitiesTableViewCell: UITableViewCell {
         updateTime_Label.frame = CGRect(x: 20, y: cityName_Label.frame.maxY, width: 40, height: 20)
         updateTime_Label.backgroundColor = .gray
         
-        warning_Label.frame = CGRect(x: 20, y: cityAnima_View.frame.maxY - 30, width: cityAnima_View.frame.width - 50, height: 16)
+        warning_Label.frame = CGRect(x: 20, y: cityAnima_View.frame.maxY - 30, width: cityAnima_View.frame.maxX - 100, height: 16)
         warning_Label.backgroundColor = .gray
         
         warning_ImageV.frame = CGRect(x: 20, y: warning_Label.frame.minY - 20, width: 15, height: 15)
         warning_ImageV.backgroundColor = .gray
         
-        temp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 40, y: 10, width: 80, height: 55)
+        temp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 50, y: 10, width: 80, height: 55)
         temp_Label.backgroundColor = .gray
         
-        maxTemp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 40, y: temp_Label.frame.maxY + 5, width: 80, height: 15)
+        maxTemp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 50, y: temp_Label.frame.maxY + 5, width: 80, height: 15)
         maxTemp_Label.backgroundColor = .gray
 
-        minTemp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 40, y: maxTemp_Label.frame.maxY + 1, width: 80, height: 15)
+        minTemp_Label.frame = CGRect(x: cityAnima_View.frame.maxX - 50, y: maxTemp_Label.frame.maxY + 1, width: 80, height: 15)
         minTemp_Label.backgroundColor = .gray
-        
     }
     
     required init?(coder: NSCoder) {
