@@ -112,11 +112,14 @@ class CreateUIs{
         viewHead.frame = CGRect(x: 0, y: 0, width: baseView.frame.width, height: 30)
         viewHead.autoresizingMask = .flexibleWidth
         baseView.addSubview(viewHead)
-        iconHead.frame = CGRect(x: 10, y: 10, width: 15, height: 15)
+        iconHead.frame = CGRect(x: 10, y: 10, width: 14, height: 14)
         iconHead.image = icon
+        iconHead.backgroundColor = .yellow
         labelHead.text = text
         labelHead.font = font
-        labelHead.frame = CGRect(x: iconHead.frame.maxX + 5, y: 10, width: 250, height: 15)
+        print(baseView.frame.width)
+        labelHead.frame = CGRect(x: iconHead.frame.maxX + 5, y: 10, width: baseView.frame.width - 40, height: 15)
+        labelHead.backgroundColor = .cyan
         labelHead.textColor = .black
         viewHead.addSubview(iconHead)
         viewHead.addSubview(labelHead)

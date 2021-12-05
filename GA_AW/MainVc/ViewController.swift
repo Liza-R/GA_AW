@@ -24,6 +24,7 @@ class ViewController: UIViewController{
         createUIs.createAllScrolls()
         createUIs.createAllTables(table: daysForecastTable)
         createUIs.createMap()
+        createUIs.addHeaders()
         createUIs.createLeftInfoViews()
         createUIs.createRightInfoViews()
         createUIs.createHorizontalCollection(collect: &hoursForecastCollection)

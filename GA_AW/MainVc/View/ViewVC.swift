@@ -46,9 +46,6 @@ class ViewVC{
         createUI.createViews(userView: warning_View, baseView: contentForScroll_View, x: 0, y: 0, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
         createUI.createViews(userView: hourForecast_View, baseView: contentForScroll_View, x: 0, y: warning_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 150, cornerRad: 15, color: backgroundViewsColor_)
         createUI.createViews(userView: forecastTable_View, baseView: contentForScroll_View, x: 0, y: hourForecast_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: 630, cornerRad: 15, color: backgroundViewsColor_)
-        createUI.addHeader(baseView: warning_View, text: "НЕБЛАГОПРИЯТНЫЕ ПОГОДНЫЕ УСЛОВИЯ", icon: imWarn, font: UIFont.systemFont(ofSize: 10))
-        createUI.addHeader(baseView: hourForecast_View, text: "ПОЧАСОВОЙ ПРОГНОЗ", icon: imClock, font: UIFont.systemFont(ofSize: 15))
-        createUI.addHeader(baseView: forecastTable_View, text: "ПРОГНОЗ НА 10ДН", icon: imCalend, font: UIFont.systemFont(ofSize: 15))
     }
     
     func createHorizontalCollection(collect: inout UICollectionView?){
@@ -101,7 +98,13 @@ class ViewVC{
      */
     func createMap(){
         createUI.createViews(userView: mapFalls_View, baseView: contentForScroll_View, x: 0, y: forecastTable_View.frame.maxY + 10, width: contentForScroll_View.frame.width, height: contentForScroll_View.frame.width/1.25, cornerRad: 15, color: backgroundViewsColor_)
-        createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr, font: UIFont.systemFont(ofSize: 15))
+    }
+    
+    func addHeaders(){
+        createUI.addHeader(baseView: warning_View, text: "НЕБЛАГОПРИЯТНЫЕ ПОГОДНЫЕ УСЛОВИЯ", icon: imWarn, font: UIFont.systemFont(ofSize: 14))
+        createUI.addHeader(baseView: hourForecast_View, text: "ПОЧАСОВОЙ ПРОГНОЗ", icon: imClock, font: fontForViewHeader)
+        createUI.addHeader(baseView: forecastTable_View, text: "ПРОГНОЗ НА 10ДН", icon: imCalend, font: fontForViewHeader)
+        createUI.addHeader(baseView: mapFalls_View, text: "ОСАДКИ", icon: imUmbr, font: fontForViewHeader)
     }
     
     func createLeftInfoViews(){
@@ -111,7 +114,7 @@ class ViewVC{
         coordViews = [mapFalls_View, uvIndex_View, wind_View, feels_View]
         for i in 0...3{
             createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: 0, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 160, cornerRad: 15, color: backgroundViewsColor_)
-            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: UIFont.systemFont(ofSize: 14))
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: fontForViewHeader)
         }
     }
     func createRightInfoViews(){
@@ -121,7 +124,7 @@ class ViewVC{
         coordViews = [mapFalls_View, sunrise_View, falls_View, humidity_View]
         for i in 0...3{
             createUI.createViews(userView: additionalViews[i], baseView: contentForScroll_View, x: contentForScroll_View.frame.width/2 + 5, y: coordViews[i].frame.maxY + 10, width: contentForScroll_View.frame.width/2 - 5, height: 160, cornerRad: 15, color: backgroundViewsColor_)
-            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: UIFont.systemFont(ofSize: 14))
+            createUI.addHeader(baseView: additionalViews[i], text: headName[i], icon: headIcons[i], font: fontForViewHeader)
         }
         let openMapButton = UIButton(),
             weatherInCityLabel = UILabel(),
