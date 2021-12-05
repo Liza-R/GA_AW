@@ -12,6 +12,7 @@
 		203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */; };
 		207966D6275A4C070033EBCD /* CreateUIsFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */; };
 		20A26C5D275CD0E4002EDB8D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A26C5C275CD0E4002EDB8D /* Fonts.swift */; };
+		20A26C60275D0CCE002EDB8D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A26C5F275D0CCE002EDB8D /* MapViewController.swift */; };
 		20E9C3C4275BB90E009CF9D3 /* HourForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E9C3C3275BB90E009CF9D3 /* HourForecastCollectionViewCell.swift */; };
 		20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11EF2758D5540085D39D /* AppDelegate.swift */; };
 		20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE11F12758D5540085D39D /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 		203E95F8275B783C00F70452 /* DayForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastTableViewCell.swift; sourceTree = "<group>"; };
 		207966D5275A4C070033EBCD /* CreateUIsFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUIsFuncs.swift; sourceTree = "<group>"; };
 		20A26C5C275CD0E4002EDB8D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		20A26C5F275D0CCE002EDB8D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		20E9C3C3275BB90E009CF9D3 /* HourForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		20FE11EC2758D5540085D39D /* GA_AW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GA_AW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FE11EF2758D5540085D39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			path = TouchClasses;
 			sourceTree = "<group>";
 		};
+		20A26C5E275D0CB1002EDB8D /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+				20A26C5F275D0CCE002EDB8D /* MapViewController.swift */,
+			);
+			path = MapVC;
+			sourceTree = "<group>";
+		};
 		20FE11E32758D5540085D39D = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 		20FE11EE2758D5540085D39D /* GA_AW */ = {
 			isa = PBXGroup;
 			children = (
+				20A26C5E275D0CB1002EDB8D /* MapVC */,
 				20FE122E275A48E00085D39D /* MainVc */,
 				20FE12252758D8390085D39D /* CoreData */,
 				20FE12242758D8190085D39D /* Other */,
@@ -349,6 +360,7 @@
 				20FE11F02758D5540085D39D /* AppDelegate.swift in Sources */,
 				203E95EA275B531500F70452 /* Icons.swift in Sources */,
 				20E9C3C4275BB90E009CF9D3 /* HourForecastCollectionViewCell.swift in Sources */,
+				20A26C60275D0CCE002EDB8D /* MapViewController.swift in Sources */,
 				20FE11F22758D5540085D39D /* SceneDelegate.swift in Sources */,
 				20A26C5D275CD0E4002EDB8D /* Fonts.swift in Sources */,
 				203E95F9275B783C00F70452 /* DayForecastTableViewCell.swift in Sources */,

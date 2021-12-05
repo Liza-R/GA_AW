@@ -26,7 +26,8 @@ class ViewController: UIViewController{
         bottomView.addSubview(configButton)
         mainScroll.delegate = self
         mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
-
+        mapButton.addTarget(self, action: #selector(mapSender(_ :)), for: .touchUpInside)
+        
         mainPageControll.numberOfPages = 5
         bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
@@ -35,6 +36,10 @@ class ViewController: UIViewController{
     @objc private func pageControllChange(_ sender: UIPageControl){
         let curPage = sender.currentPage
         mainScroll.setContentOffset(CGPoint(x: CGFloat(curPage) * view.frame.size.width, y: 0), animated: true)
+    }
+    
+    @objc private func mapSender(_ sender: UIButton){
+        present(MapViewController(), animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
