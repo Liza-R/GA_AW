@@ -29,7 +29,7 @@ class ViewController: UIViewController{
         configButton.addTarget(self, action: #selector(citiesSender(_ :)), for: .touchUpInside)
         mapButton.addTarget(self, action: #selector(mapSender(_ :)), for: .touchUpInside)
         
-        mainPageControll.numberOfPages = 5
+        mainPageControll.numberOfPages = 3
         bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
     }
@@ -41,6 +41,7 @@ class ViewController: UIViewController{
     
     @objc private func citiesSender(_ sender: UIButton){
         present(CitiesViewController(), animated: true, completion: nil)
+        
     }
     
     @objc private func mapSender(_ sender: UIButton){
@@ -90,11 +91,10 @@ class ViewController: UIViewController{
             daysForecastTable.delegate = self
             daysForecastTable.dataSource = self
             createUIs.createAllTables(table: daysForecastTable)
-
         }
     }
 
-    struct AppUtility {
+    struct AppUtility{
         static func lockOrientation(_ orientation: UIInterfaceOrientationMask){
             if let delegate = UIApplication.shared.delegate as? AppDelegate {
                 delegate.orientationLock = orientation

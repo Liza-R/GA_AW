@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class ViewVC{
-    private let mainInfo_View = UIView(),
+    private let vc = ViewController(),
+                mainInfo_View = UIView(),
                 cityName_Label = UILabel(),
                 mainTemp_Label = UILabel(),
                 description_Label = UILabel(),
