@@ -42,7 +42,7 @@ class CitiesViewController: UIViewController {
         searchCity.placeholder = "Поиск города или аэропорта"
         
         settingButton.backgroundColor = .red
-        settingButton.frame = CGRect(x: headerView.frame.size.width - 50, y: 10, width: 30, height: 30)
+        settingButton.frame = CGRect(x: headerView.frame.size.width - 50, y: 40, width: 30, height: 30)
         
         citiesTable.tableFooterView = footerTable_View
 

@@ -42,11 +42,11 @@ class CreateUIs{
         - fontName: is font name,
         - fontSize: is font size
      */
-    func createLabels(userLabel: UILabel, baseView: UIView, color: UIColor, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, font: UIFont){
+    func createLabels(userLabel: UILabel, baseView: UIView, color: UIColor, text: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, font: UIFont, textAlignment: NSTextAlignment){
         userLabel.text = text
         userLabel.frame = CGRect(x: x, y: y, width: width, height: height)
         userLabel.font = font
-        userLabel.textAlignment = .center
+        userLabel.textAlignment = textAlignment
         userLabel.autoresizingMask = .flexibleWidth
         userLabel.textColor = color
         baseView.addSubview(userLabel)
@@ -105,22 +105,38 @@ class CreateUIs{
         baseView.addSubview(viewForMap)
     }
     
+    /**
+     Creation of UI element (UIView with map).
+        - viewForMap: is view for map,
+        - baseView: is view to host viewForMap,
+        - x: is x point,
+        - y: is y point,
+        - width: is width viewForMap,
+        - height: is height viewForMap,
+        - color: is color for viewForMap backgroundColor,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
+     */
+    func createImage(imageView: UIImageView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor, icon: UIImage){
+        imageView.frame = CGRect(x: x, y: y, width: width, height: height)
+        imageView.image = icon
+        imageView.backgroundColor = .yellow
+        baseView.addSubview(imageView)
+    }
+    
+    /**
+     Creating a header for UIs elements.
+        - baseView: is view to host viewForMap,
+        - text: is text the header title,
+        - icon: is image to illustrate the header title,
+        - font: is font the header title
+     */
     func addHeader(baseView: UIView, text: String, icon: UIImage, font: UIFont){
         let viewHead = UIView(),
             iconHead = UIImageView(),
             labelHead = UILabel()
-        viewHead.frame = CGRect(x: 0, y: 0, width: baseView.frame.width, height: 30)
-        viewHead.autoresizingMask = .flexibleWidth
-        baseView.addSubview(viewHead)
-        iconHead.frame = CGRect(x: 10, y: 10, width: 14, height: 14)
-        iconHead.image = icon
-        iconHead.backgroundColor = .yellow
-        labelHead.text = text
-        labelHead.font = font
-        labelHead.frame = CGRect(x: iconHead.frame.maxX + 5, y: 10, width: baseView.frame.width - 40, height: 15)
-        labelHead.backgroundColor = .cyan
-        labelHead.textColor = .black
-        viewHead.addSubview(iconHead)
-        viewHead.addSubview(labelHead)
+        
+        createViews(userView: viewHead, baseView: baseView, x: 0, y: 0, width: baseView.frame.width, height: 30, cornerRad: 0, color: .clear)
+        createImage(imageView: iconHead, baseView: viewHead, x: 10, y: 10, width: 14, height: 14, color: .yellow, icon: icon)
+        createLabels(userLabel: labelHead, baseView: viewHead, color: .black, text: text, x: iconHead.frame.maxX + 5, y: 10, width: baseView.frame.width - 40, height: 15, font: font, textAlignment: .left)
     }
 }

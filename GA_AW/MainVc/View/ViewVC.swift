@@ -62,10 +62,10 @@ class ViewVC{
      Calling a function to create a new UILabel with the specified parameters.
      */
     func createAllLabels(){
-        createUI.createLabels(userLabel: cityName_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Moscow", x: 0, y: mainInfo_View.frame.width/4, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 33))
-        createUI.createLabels(userLabel: mainTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "7°", x: 0, y: cityName_Label.frame.maxY, width: mainInfo_View.frame.width, height: 75, font: UIFont.systemFont(ofSize: 65))
-        createUI.createLabels(userLabel: description_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Cloudy", x: 0, y: mainTemp_Label.frame.maxY - 10, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 20))
-        createUI.createLabels(userLabel: maxminTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "H:8° L:4°", x: 0, y: description_Label.frame.maxY, width: mainInfo_View.frame.width, height: 25, font: UIFont.systemFont(ofSize: 18))
+        createUI.createLabels(userLabel: cityName_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Moscow", x: 0, y: mainInfo_View.frame.width/4, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 33), textAlignment: .center)
+        createUI.createLabels(userLabel: mainTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "7°", x: 0, y: cityName_Label.frame.maxY, width: mainInfo_View.frame.width, height: 75, font: UIFont.systemFont(ofSize: 65), textAlignment: .center)
+        createUI.createLabels(userLabel: description_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "Cloudy", x: 0, y: mainTemp_Label.frame.maxY - 10, width: mainInfo_View.frame.width, height: 30, font: UIFont.systemFont(ofSize: 20), textAlignment: .center)
+        createUI.createLabels(userLabel: maxminTemp_Label, baseView: mainInfo_View, color: colorMainWeatherInfo, text: "H:8° L:4°", x: 0, y: description_Label.frame.maxY, width: mainInfo_View.frame.width, height: 25, font: UIFont.systemFont(ofSize: 18), textAlignment: .center)
     }
     
     /**

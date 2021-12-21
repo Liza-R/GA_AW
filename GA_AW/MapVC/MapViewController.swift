@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
         map.addAnnotation(annotation)
         map.addSubview(exitButton)
         
-        exitButton.frame = CGRect(x: 20, y: 20, width: 100, height: 30)
+        exitButton.frame = CGRect(x: 20, y: 60, width: 100, height: 30)
         exitButton.backgroundColor = .red
         exitButton.addTarget(self, action: #selector(exitSender(_:)), for: .touchUpInside)
         exitButton.layer.cornerRadius = 5
