@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 class ViewVC{
-    private let vc = ViewController(),
-                mainInfo_View = UIView(),
+    private let mainInfo_View = UIView(),
                 cityName_Label = UILabel(),
                 mainTemp_Label = UILabel(),
                 description_Label = UILabel(),
@@ -57,6 +56,7 @@ class ViewVC{
         collect = UICollectionView(frame: contentForHourScroll_View.frame, collectionViewLayout: layout)
         collect?.backgroundColor = .red
         hourForecast_Scroll.addSubview(collect ?? UICollectionView())
+        print("collectCreate")
     }
     /**
      Calling a function to create a new UILabel with the specified parameters.
@@ -92,7 +92,8 @@ class ViewVC{
         table.isScrollEnabled = false
         table.showsVerticalScrollIndicator = false
         table.showsHorizontalScrollIndicator = false
-        table.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)  
+        table.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)
+        print("tableCreate")
     }
     
     /**

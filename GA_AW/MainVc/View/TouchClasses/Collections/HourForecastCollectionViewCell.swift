@@ -38,7 +38,7 @@ class HourForecastCollectionViewCell: UICollectionViewCell {
     }
     
     func addViews(){
-        backgroundColor = .clear
+        backgroundColor = .blue
         addSubview(hourLabel)
         addSubview(iconImageV)
         addSubview(tempLabel)

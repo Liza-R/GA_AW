@@ -28,24 +28,25 @@ class ViewController: UIViewController{
         mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
         configButton.addTarget(self, action: #selector(citiesSender(_ :)), for: .touchUpInside)
         mapButton.addTarget(self, action: #selector(mapSender(_ :)), for: .touchUpInside)
-        
-        mainPageControll.numberOfPages = 3
+        mainPageControll.numberOfPages = 2
         bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
     }
     
     @objc private func pageControllChange(_ sender: UIPageControl){
-        let curPage = sender.currentPage
-        mainScroll.setContentOffset(CGPoint(x: CGFloat(curPage) * view.frame.size.width, y: 0), animated: true)
+        mainScroll.setContentOffset(CGPoint(x: CGFloat(sender.currentPage) * view.frame.size.width, y: 0), animated: true)
     }
     
     @objc private func citiesSender(_ sender: UIButton){
-        present(CitiesViewController(), animated: true, completion: nil)
-        
+        let vc = CitiesViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc private func mapSender(_ sender: UIButton){
-        present(MapViewController(), animated: true, completion: nil)
+        let vc = MapViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,34 +70,37 @@ class ViewController: UIViewController{
         for i in 0..<mainPageControll.numberOfPages{
             let page = UIView(frame: CGRect(x: CGFloat(i) * view.frame.size.width, y: 0, width: view.frame.size.width, height: mainScroll.frame.size.height))
             mainScroll.addSubview(page)
-            
             let createUIs = ViewVC()
             createUIs.createBottomView(mainView: page, device: UIDevice.current.model)
             createUIs.createAllViews()
             createUIs.createAllLabels()
             createUIs.createAllScrolls()
             
-            hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
-            hoursForecastCollection?.dataSource = self
-            hoursForecastCollection?.delegate = self
-            createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
-            
             createUIs.createMap()
             createUIs.addHeaders()
             createUIs.createLeftInfoViews()
             createUIs.createRightInfoViews()
-            
+
             let daysForecastTable = UITableView()
             daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
+            print("delegateTTT")
             daysForecastTable.delegate = self
+            print("dataSourceTTT")
             daysForecastTable.dataSource = self
             createUIs.createAllTables(table: daysForecastTable)
+            
+            hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
+            hoursForecastCollection?.dataSource = self
+                print("dataSource")
+            hoursForecastCollection?.delegate = self
+                print("delegate")
+            createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
         }
     }
 
     struct AppUtility{
         static func lockOrientation(_ orientation: UIInterfaceOrientationMask){
-            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            if let delegate = UIApplication.shared.delegate as? AppDelegate{
                 delegate.orientationLock = orientation
             }
         }
@@ -131,12 +135,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 25
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourForecastCell", for: indexPath) as! HourForecastCollectionViewCell
         cell.backgroundColor = .blue
-        cell.hourLabel.text = "\(indexPath.row)"
+        cell.hourLabel.text = "hour"
         cell.tempLabel.text = "-100*"
+        cell.iconImageV.image = imWarn
         return cell
     }
 }
