@@ -30,6 +30,25 @@ class CreateUIs{
     }
     
     /**
+     Creation of UI element (UIButton).
+        - userButton: is input button,
+        - baseView: is view to host the userButton,
+        - color: is color for userButton backgroundColor,
+        - x: is x point,
+        - y: is y point,
+        - width: is width userButton,
+        - height: is height userButton,
+        - cornerRad: the radius to use when drawing rounded corners for the layer’s background
+     */
+    func createButtons(userButton: UIButton, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat, color: UIColor){
+        userButton.backgroundColor = color
+        userButton.frame = CGRect(x: x, y: y, width: width, height: height)
+        userButton.autoresizingMask = .flexibleWidth
+        userButton.layer.cornerRadius = cornerRad
+        baseView.addSubview(userButton)
+    }
+    
+    /**
      Creation of UI element (UILabels).
         - userLabel: is input label,
         - baseView: is view to host the userLabel,
@@ -68,17 +87,20 @@ class CreateUIs{
         - cornerRad: the radius to use when drawing rounded corners for the layer’s background,
         - backColor: is color for UIScrollView backgroundColor
      */
-    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, contentView: UIView, color: UIColor, contentSizeW: CGFloat, contentSizeH: CGFloat, cornerRad: CGFloat, backColor: UIColor){
-        let contentViewSize = CGSize(width: contentSizeW, height: contentSizeH)
+    func createScroll(baseView: UIView, scroll: UIScrollView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat, backColor: UIColor){
         scroll.frame = .zero
         scroll.layer.cornerRadius = cornerRad
         scroll.backgroundColor = backColor
-        scroll.contentSize = contentViewSize
         scroll.autoresizingMask = .flexibleWidth
         baseView.addSubview(scroll)
         scroll.frame = CGRect(x: x, y: y, width: width, height: height)
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
+    }
+    
+    func createContentAreaScroll(scroll: UIScrollView, contentSizeW: CGFloat, contentSizeH: CGFloat, contentView: UIView, color: UIColor){
+        let contentViewSize = CGSize(width: contentSizeW, height: contentSizeH)
+        scroll.contentSize = contentViewSize
         contentView.backgroundColor = color
         contentView.frame = .zero
         contentView.autoresizingMask = .flexibleWidth
@@ -102,6 +124,20 @@ class CreateUIs{
         imageView.image = icon
         imageView.backgroundColor = .yellow
         baseView.addSubview(imageView)
+    }
+    
+    func createTable(table: UITableView, baseView: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, cornerRad: CGFloat, rowHeight: CGFloat, separatorStyle: UITableViewCell.SeparatorStyle, separatorColor: UIColor){
+        baseView.addSubview(table)
+        table.frame = CGRect(x: x, y: y, width: width, height: height)
+        table.layer.cornerRadius = cornerRad
+        table.autoresizingMask = .flexibleWidth
+        table.rowHeight = rowHeight
+        table.separatorStyle = separatorStyle
+        table.separatorColor = separatorColor
+        table.isScrollEnabled = false
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
+        table.separatorInset = .init(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     /**

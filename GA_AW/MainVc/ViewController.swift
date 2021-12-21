@@ -19,46 +19,51 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(bottomView)
-        view.addSubview(mainScroll)
-        bottomView.addSubview(mainPageControll)
-        bottomView.addSubview(mapButton)
-        bottomView.addSubview(configButton)
+        
         mainScroll.delegate = self
         mainPageControll.addTarget(self, action: #selector(pageControllChange(_ :)), for: .valueChanged)
-        configButton.addTarget(self, action: #selector(citiesSender(_ :)), for: .touchUpInside)
-        mapButton.addTarget(self, action: #selector(mapSender(_ :)), for: .touchUpInside)
+        
+//        configButton.addTarget(self, action: #selector(citiesSender(_ :)), for: .touchUpInside)
+//        mapButton.addTarget(self, action: #selector(mapSender(_ :)), for: .touchUpInside)
+        
+        view.addSubview(mainScroll)
+        bottomView.addSubview(mainPageControll)
+
         mainPageControll.numberOfPages = 2
-        bottomView.backgroundColor = .blue
         mainScroll.backgroundColor = .red
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.portrait)
     }
     
     @objc private func pageControllChange(_ sender: UIPageControl){
         mainScroll.setContentOffset(CGPoint(x: CGFloat(sender.currentPage) * view.frame.size.width, y: 0), animated: true)
     }
     
-    @objc private func citiesSender(_ sender: UIButton){
-        let vc = CitiesViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    @objc private func mapSender(_ sender: UIButton){
-        let vc = MapViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
+    // Router
+//    @objc private func citiesSender(_ sender: UIButton){
+//        let vc = CitiesViewController()
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
+//    }
+//
+//    @objc private func mapSender(_ sender: UIButton){
+//        let vc = MapViewController()
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
+//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        bottomView.frame = CGRect(x: 0, y: view.frame.size.height - 80, width: view.frame.size.width, height: 80)
-        mapButton.frame = CGRect(x: 20, y: 10, width: 30, height: 30)
-        mapButton.backgroundColor = .purple
-        mainPageControll.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: bottomView.frame.size.width - 120, height: 30)
-        configButton.frame = CGRect(x: bottomView.frame.size.width - 50, y: 10, width: 30, height: 30)
-        configButton.backgroundColor = .purple
+        CreateUIs().createViews(userView: bottomView, baseView: self.view, x: 0, y: view.frame.size.height - 80, width: view.frame.size.width, height: 80, cornerRad: 0, color: .blue)
+        CreateUIs().createButtons(userButton: mapButton, baseView: bottomView, x: 20, y: 10, width: 30, height: 30, cornerRad: 0, color: .purple)
+        CreateUIs().createButtons(userButton: configButton, baseView: bottomView, x: bottomView.frame.size.width - 50, y: 10, width: 30, height: 30, cornerRad: 0, color: .purple)
         
+        mainPageControll.frame = CGRect(x: mapButton.frame.maxX + 10, y: 10, width: bottomView.frame.size.width - 120, height: 30)
         mainScroll.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 80)
+        
         if mainScroll.subviews.count == 2{
             configMainScroll()
         }
@@ -67,11 +72,12 @@ class ViewController: UIViewController{
     private func configMainScroll(){
         mainScroll.contentSize = CGSize(width: view.frame.size.width * CGFloat(mainPageControll.numberOfPages), height: mainScroll.frame.size.height)
         mainScroll.isPagingEnabled = true
+        
         for i in 0..<mainPageControll.numberOfPages{
             let page = UIView(frame: CGRect(x: CGFloat(i) * view.frame.size.width, y: 0, width: view.frame.size.width, height: mainScroll.frame.size.height))
             mainScroll.addSubview(page)
             let createUIs = ViewVC()
-            createUIs.createBottomView(mainView: page, device: UIDevice.current.model)
+            createUIs.deviceInfo(mainView: page, device: UIDevice.current.model)
             createUIs.createAllViews()
             createUIs.createAllLabels()
             createUIs.createAllScrolls()
@@ -80,21 +86,19 @@ class ViewController: UIViewController{
             createUIs.addHeaders()
             createUIs.createLeftInfoViews()
             createUIs.createRightInfoViews()
-
-            let daysForecastTable = UITableView()
-            daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
-            print("delegateTTT")
-            daysForecastTable.delegate = self
-            print("dataSourceTTT")
-            daysForecastTable.dataSource = self
-            createUIs.createAllTables(table: daysForecastTable)
+            createUIs.createViewsForInfo()
             
             hoursForecastCollection?.register(HourForecastCollectionViewCell.self, forCellWithReuseIdentifier: "hourForecastCell")
             hoursForecastCollection?.dataSource = self
-                print("dataSource")
             hoursForecastCollection?.delegate = self
-                print("delegate")
             createUIs.createHorizontalCollection(collect: &hoursForecastCollection)
+
+            let daysForecastTable = UITableView()
+            daysForecastTable.register(DayForecastTableViewCell.self, forCellReuseIdentifier: "dayForecastCell")
+            daysForecastTable.delegate = self
+            daysForecastTable.dataSource = self
+            createUIs.createAllTables(table: daysForecastTable)
+            
         }
     }
 
@@ -104,14 +108,10 @@ class ViewController: UIViewController{
                 delegate.orientationLock = orientation
             }
         }
-        static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation:UIInterfaceOrientation) {
+        static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation: UIInterfaceOrientation) {
             self.lockOrientation(orientation)
             UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.portrait)
     }
 }
 
@@ -146,7 +146,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
 }
 
-extension ViewController: UIScrollViewDelegate{
+extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         mainPageControll.currentPage = Int(floorf(Float(mainScroll.contentOffset.x) / Float(mainScroll.frame.size.width)))
     }
